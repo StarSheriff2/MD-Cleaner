@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
 
-puts 'Hello!'
+require_relative '../lib/linter_logic'
