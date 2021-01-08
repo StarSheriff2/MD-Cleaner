@@ -2,9 +2,10 @@
 
 # Test file
 
-> This is a test md file to be used with the linter program
+> This is a test md file to be used with the linter program 🎮
 
-🎮
+A _6_ meow
+
 **This project was build with ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x64-mingw32] and ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin15]**
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec. Morbi tincidunt ornare massa eget egestas. 🙂
@@ -66,7 +67,7 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/StarSheriff2/Using-RSpec-to-Test-Projects/issues).
 
-## Show your support
+##Show your support
 
 Give a ⭐️ if you like this project!
 

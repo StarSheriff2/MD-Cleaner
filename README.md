@@ -69,7 +69,7 @@ Give a ⭐️ if you like this project!
 
 - Hat tip to anyone whose code was used
 - Inspiration
-- etc
+- Markdown best practices taken from here: [Basic Syntax | Markdown Guide](https://www.markdownguide.org/basic-syntax/)
 
 ## 📝 License
 

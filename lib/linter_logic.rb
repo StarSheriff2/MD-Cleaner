@@ -19,6 +19,7 @@ class Checker
   def error_checker
     heading
     paragraph_indent
+    italic_middle
     buffer.terminate
   end
 
@@ -32,6 +33,13 @@ class Checker
   def paragraph_indent
     if buffer.scan_until(/^\s+\S+/)
       puts "Warning in Line #{@@line_count}, position: #{buffer.pos}: '#{buffer.matched}'. To create paragraphs, use a blank line to separate one or more lines of text."
+      buffer.terminate
+    end
+  end
+
+  def italic_middle
+    if buffer.scan_until(/_\w_/)
+      puts "Warning in Line #{@@line_count}, position: #{buffer.pos}: '#{buffer.matched}'. Use asterisks to italicize the middle of a word for emphasis."
       buffer.terminate
     end
   end
