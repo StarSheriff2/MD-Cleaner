@@ -17,14 +17,21 @@ class Checker
   end
 
   def error_checker
-    num_sign_check
+    heading
+    paragraph_indent
+    buffer.terminate
   end
 
-  def num_sign_check
+  def heading
     if buffer.scan_until(/#[^#+\s]/)
       puts "Warning in Line #{@@line_count}, position: #{buffer.pos}: '#{buffer.matched}'. Always put a space between the number signs '#' and the heading name"
       buffer.terminate
-    else
+    end
+  end
+
+  def paragraph_indent
+    if buffer.scan_until(/^\s+\S+/)
+      puts "Warning in Line #{@@line_count}, position: #{buffer.pos}: '#{buffer.matched}'. To create paragraphs, use a blank line to separate one or more lines of text."
       buffer.terminate
     end
   end
