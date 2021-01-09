@@ -1,22 +1,18 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Test file
+# Lorem ipsum
 
-> This is a test md file to be used with the linter program 🎮
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 🎮
 
-A _6_ meow
+**Quis commodo odio aenean sed ruby 2.7.2p137 (2020-10-01 adipiscing 5445e04352) [x64-mingw32]**
 
-**This project was build with ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x64-mingw32] and ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin15]**
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut_labore_et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec. Morbi tincidunt ornare massa eget egestas. 🙂
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec. Morbi tincidunt ornare massa eget egestas. 🙂
-
-## Built With
+##Dolor sit amet
 
 - Ruby
 
-## Introduction
-
-Title
+## Consectetur adipiscing elit
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
@@ -26,34 +22,23 @@ Title
 
 Fringilla ut morbi tincidunt augue interdum velit euismod in!
 
-![How to win](./app_screenshot.png)
+![Tincidunt arcu non](./app_screenshot.png)
 
-## Instructions
+## Venenatis
 
 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-2. Mauris in aliquam sem fringilla ut morbi tincidunt. Volutpat sed cras ornare arcu dui. Massa id neque aliquam vestibulum morbi blandit cursus. Venenatis tellus in metus vulputate. Risus quis varius quam quisque id diam vel quam elementum: `git clone https://github.com/vichuge/rb-tic-tac-toe.git`. In eu mi bibendum neque egestas congue quisque.
+2. Mauris in aliquam sem fringilla ut morbi tincidunt. Volutpat sed cras ornare arcu dui. Massa id neque aliquam vestibulum morbi blandit cursus. Venenatis tellus in metus vulputate. Risus quis varius quam quisque id diam vel quam elementum: `git clone https://github.com/StarSheriff2/rb-tic-tac-toe.git`. In eu mi bibendum neque egestas congue quisque.
 3. Ac ut consequat semper viverra nam libero justo laoreet **sit**.
 4. Eget velit aliquet sagittis id. Augue ut lectus arcu **bibendum at**.
 7. Dictum fusce ut placerat orci nulla pellentesque dignissim `./bin/main.rb`.
-8. In case the game doesn't load, type `ruby bin/main.rb`
+8. Ac ut consequat semper viverra nam, libero `ruby bin/main.rb`
 9. Viverra!
 
-## Live Demo
+## Viverra Nam
 
 - Repl live demo: [Link](https://repl.it/@StarSheriff2/Tic-Tac-Toe-Ruby-Project)
 
-## Rspec Setup
-
-1. Follow steps 1 to 6 in "Instructions" section of this **README** file
-2. While in the root directory, type `bundle install`. This will install Rspec in your system, in case you don't have it installed already. (It also installs Rubocop; however, this gem is not necessary to make the project work).
-
-## Rspec Testing
-
-To run the Rspec tests do the following:
-- Open your terminal and go to the project's root directory
-- Type this `rspec --format doc` to see test example results
-
-## Authors
+## Placerat
 
 👤 **Arturo Alvarez**
 
@@ -61,16 +46,16 @@ To run the Rspec tests do the following:
 - Twitter: [@Turo_83](https://twitter.com/Turo_83)
 - LinkedIn: [Carlos Alvarez](https://www.linkedin.com/in/carlosalvarezveroy/)
 
-## 🤝 Contributing
+## 🤝 Elementum
 
-Contributions, issues, and feature requests are welcome!
+Ac ut consequat semper viverra nam libero!
 
-Feel free to check the [issues page](https://github.com/StarSheriff2/Using-RSpec-to-Test-Projects/issues).
+Mauris in aliquam sem fringilla [ut morbi](https://github.com/StarSheriff2/md-cleaner-ruby-capstone).
 
-##Show your support
+##Consequat semper viverra
 
-Give a ⭐️ if you like this project!
+adipiscing diam ⭐️ orci nulla pellentesque dignissim!
 
-## 📝 License
+## 📝 Sagittis
 
-This project is [MIT](https://github.com/vichuge/ruby_enumerables/blob/main/LICENSE) licensed, thanks.
+Dictum fusce ut [MIT](https://github.com/StarSheriff2/md-cleaner-ruby-capstone/main/LICENSE) viverra, nam.
