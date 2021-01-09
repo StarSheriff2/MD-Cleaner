@@ -12,8 +12,10 @@ class Checker
 
   def error_checker
     @checkers.each do |checker|
-      puts checker if checker
-      @buffer.reset
+      if checker
+        puts checker
+        @buffer.reset
+      end
     end
   end
 
