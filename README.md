@@ -29,7 +29,7 @@ Fix all errors until there are no errors found in your md file and you get a mes
 
 ## Live Demo
 
-[Live Demo Link](https://repl.it/@StarSheriff2/MD-Cleanerdemo)
+- Repl live demo: [Live Demo Link](https://repl.it/@StarSheriff2/MD-Cleanerdemo)
 
 
 ## Getting Started
@@ -68,7 +68,7 @@ To run the Rspec tests do the following:
 - Twitter: [@Turo_83](https://twitter.com/Turo_83)
 - LinkedIn: [Carlos Alvarez](https://www.linkedin.com/in/carlosalvarezveroy/)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome!
 
