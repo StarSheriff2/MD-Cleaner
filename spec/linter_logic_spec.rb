@@ -1,6 +1,7 @@
 require_relative '../lib/linter_logic'
+require_relative '../lib/error_checkers'
 
-describe Checker do
+describe Check do
 
   describe '#initialize' do
     subject(:create_string_scanner) { described_class.new('this is a string', 1) }
@@ -13,18 +14,18 @@ describe Checker do
 
   describe '#error_checker' do
 
-    context 'when checker is true' do
-      subject(:reset_buffer) { described_class.new('  ##this is a string_qwe_asdas', 1) }
+    context 'when match_check is true for an error checker' do
+      subject(:check_scans) { described_class.new('dummy text', 1) }
 
-      # before do
-      #   checkers = reset_buffer.instance_variable_get(:@checkers)
-      #   allow(checkers).to receive(:each).and_return(true, true, true)
-      # end
+      before do
+        allow(check_scans).to receive(:match_check).and_return(true, true, true)
+        allow(check_scans.buffer).to receive(:scan_until).with(0).exactly(3).times
+      end
 
-      it 'sends reset once for every checker' do
-        expect(reset_buffer.buffer).to receive(:reset).exactly(3).times
+      it 'sends scan_until once for each case' do
+        expect(check_scans.buffer).to receive(:scan_until).with(0).exactly(3).times
         # expect(reset_buffer.instance_variable_get(:@checkers)).to receive(:each)
-        reset_buffer.error_checker
+        check_scans.error_checker
       end
     end
 
