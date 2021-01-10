@@ -9,22 +9,10 @@ require_relative '../lib/error_checkers'
 file = 'lib/test.md'
 line_count = 0
 
-def run_linter(check, checkers)
-  i = 0
-  while i < checkers.length do
-    if check.match_check(checkers[i].pattern)
-      check.buffer.scan_until(checkers[i].pattern)
-      puts check.error_message(checkers[i].message)
-      check.buffer.reset
-    end
-    i += 1
-  end
-end
-
 File.open(file, 'r+') do |f|
   while (line = f.gets)
     line_count += 1
     check = Check.new(line, line_count)
-    run_linter(check, check.checkers)
+    check.start(check.checkers) { |error_message| puts error_message }
   end
 end
