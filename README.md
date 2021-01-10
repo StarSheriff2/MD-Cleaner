@@ -1,33 +1,31 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Md Cleaner
 
-> One paragraph statement about the project.
+> This is a linter program that checks for errors in markdown files specifically used in Github repositories. It's the Capstone project for Microverse's Ruby Course.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./assets/app_screenshot.png)
 
-Additional description about the project and its features.
+In this project I built a linter for markdown files. It was specifically built for README.md files that typically go inside Github repositories.
+It currently detects three types of errors:
+- Heading errors
+- Paragraph indent errors
+- Italics in middle of a word
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Ruby
+- RSpec, Rubocop
+- VSCode, Github, Gitflow
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://repl.it/@StarSheriff2/MD-Cleanerdemo)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
 
 ### Setup
 
@@ -43,23 +41,17 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Author1**
+👤 **Arturo Alvarez**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/linkedinhandle)
+- GitHub: [@StarSheriff2](https://github.com/StarSheriff2)
+- Twitter: [@Turo_83](https://twitter.com/Turo_83)
+- LinkedIn: [Carlos Alvarez](https://www.linkedin.com/in/carlosalvarezveroy/)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/StarSheriff2/md-cleaner-ruby-capstone/issues).
 
 ## Show your support
 
