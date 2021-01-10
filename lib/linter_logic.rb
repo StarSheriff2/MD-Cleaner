@@ -2,12 +2,13 @@ require 'strscan'
 require_relative '../lib/error_checkers'
 
 class Check
-  attr_reader :buffer, :checkers
+  attr_reader :buffer, :checkers, :messages
 
   def initialize(str, line_number, checkers)
     @buffer = StringScanner.new(str)
     @line_number = line_number
     @checkers = checkers
+    @messages = []
   end
 
   def start(checkers)
@@ -15,7 +16,7 @@ class Check
     while i < checkers.length
       if match_check(checkers[i].pattern)
         buffer.scan_until(checkers[i].pattern)
-        yield(error_message(checkers[i].message))
+        @messages << error_message(checkers[i].message)
         buffer.reset
       end
       i += 1
