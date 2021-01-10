@@ -19,7 +19,7 @@ After you run the program, it will return a list with all errors in your md file
 - A brief description of the error, and correction steps to fix it
 
 Once you fix an error, the program won't show this error again if you run the program.
-Fix all errors until there are no errors found in your md file.
+Fix all errors until there are no errors found in your md file and you get a message confirmation that no errors were detected.
 
 ## Built With
 
