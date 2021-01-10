@@ -12,6 +12,15 @@ It currently detects three types of errors:
 - Paragraph indent errors
 - Italics in middle of a word
 
+After you run the program, it will return a list with all errors in your md file, with the following information:
+- Code line
+- Character position
+- Copy of code where error was detected
+- A brief description of the error, and correction steps to fix it
+
+Once you fix an error, the program won't show this error again if you run the program.
+Fix all errors until there are no errors found in your md file.
+
 ## Built With
 
 - Ruby
