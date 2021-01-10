@@ -4,10 +4,10 @@ require_relative '../lib/error_checkers'
 class Check
   attr_reader :buffer, :checkers
 
-  def initialize(str, line_number)
+  def initialize(str, line_number, checkers)
     @buffer = StringScanner.new(str)
     @line_number = line_number
-    @checkers = [Heading.new, ParagraphIndent.new, ItalicMiddle.new]
+    @checkers = checkers
   end
 
   def start(checkers)

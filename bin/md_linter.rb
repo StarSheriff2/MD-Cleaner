@@ -8,11 +8,12 @@ require_relative '../lib/error_checkers'
 
 file = 'lib/test.md'
 line_count = 0
+checkers = [Heading.new, ParagraphIndent.new, ItalicMiddle.new]
 
 File.open(file, 'r+') do |f|
   while (line = f.gets)
     line_count += 1
-    check = Check.new(line, line_count)
+    check = Check.new(line, line_count, checkers)
     check.start(check.checkers) { |error_message| puts error_message }
   end
 end
