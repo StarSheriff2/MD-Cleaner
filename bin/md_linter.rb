@@ -17,7 +17,7 @@ File.open(file, 'r+') do |f|
     check = Check.new(line, line_count, checkers)
     check.start(check.checkers)
     check.messages.each { |msg| puts msg }
-    line_errors = true if !check.messages.empty?
+    line_errors = true unless check.messages.empty?
   end
   puts 'No errors were detected in your file' unless line_errors
 end
