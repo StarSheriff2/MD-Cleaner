@@ -11,8 +11,8 @@ class Check
     @line_errors = false
   end
 
-  def start(f)
-    while (line = f.gets)
+  def start(file)
+    while (line = file.gets)
       check_line(create_buffer(line))
     end
   end
@@ -26,12 +26,12 @@ class Check
 
   def check_line(buffer)
     checkers.each do |c|
-      if match_check(buffer, c.pattern)
-        @line_errors = true
-        buffer.scan_until(c.pattern)
-        puts error_message(buffer, c.message)
-        buffer.reset
-      end
+      next unless match_check(buffer, c.pattern)
+
+      @line_errors = true
+      buffer.scan_until(c.pattern)
+      puts error_message(buffer, c.message)
+      buffer.reset
     end
   end
 
