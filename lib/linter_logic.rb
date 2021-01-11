@@ -2,7 +2,6 @@ require 'strscan'
 require_relative '../lib/error_checkers'
 
 class Check
-  attr_accessor :messages
   attr_reader :checkers, :line_errors
 
   def initialize
@@ -12,7 +11,6 @@ class Check
   end
 
   def start(file)
-    #while (line = file.gets)
     file.each_line do |line|
       check_line(create_buffer(line))
     end
