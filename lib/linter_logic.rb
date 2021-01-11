@@ -2,32 +2,44 @@ require 'strscan'
 require_relative '../lib/error_checkers'
 
 class Check
-  attr_reader :buffer, :checkers, :messages
+  attr_accessor :messages
+  attr_reader :checkers, :line_errors
 
-  def initialize(str, line_number, checkers)
-    @buffer = StringScanner.new(str)
-    @line_number = line_number
-    @checkers = checkers
-    @messages = []
+  def initialize
+    @checkers = [Heading.new, ParagraphIndent.new, ItalicMiddle.new]
+    @line_number = 0
+    @line_errors = false
   end
 
-  def start(checkers)
-    i = 0
-    while i < checkers.length
-      if match_check(checkers[i].pattern)
-        buffer.scan_until(checkers[i].pattern)
-        @messages << error_message(checkers[i].message)
-        buffer.reset
-      end
-      i += 1
+  def start(f)
+    while (line = f.gets)
+      check_line(create_buffer(line))
     end
   end
 
-  def match_check(pattern)
+  private
+
+  def create_buffer(line)
+    @line_number += 1
+    StringScanner.new(line)
+  end
+
+  def check_line(buffer)
+    checkers.each do |c|
+      if match_check(buffer, c.pattern)
+        @line_errors = true
+        buffer.scan_until(c.pattern)
+        puts error_message(buffer, c.message)
+        buffer.reset
+      end
+    end
+  end
+
+  def match_check(buffer, pattern)
     buffer.check_until(pattern)
   end
 
-  def error_message(msg)
+  def error_message(buffer, msg)
     "Warning in Line #{@line_number}, Position #{buffer.pos}: '#{buffer.matched}'. #{msg}"
   end
 end
