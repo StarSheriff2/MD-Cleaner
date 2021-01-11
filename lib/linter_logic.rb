@@ -12,7 +12,8 @@ class Check
   end
 
   def start(file)
-    while (line = file.gets)
+    #while (line = file.gets)
+    file.each_line do |line|
       check_line(create_buffer(line))
     end
   end
@@ -20,11 +21,11 @@ class Check
   private
 
   def create_buffer(line)
-    @line_number += 1
     StringScanner.new(line)
   end
 
   def check_line(buffer)
+    @line_number += 1
     checkers.each do |c|
       next unless match_check(buffer, c.pattern)
 
