@@ -11,9 +11,7 @@ class Check
   end
 
   def start(file)
-    file.each_line do |line|
-      check_line(create_buffer(line))
-    end
+    file.each_line { |line| check_line(create_buffer(line)) }
   end
 
   private
