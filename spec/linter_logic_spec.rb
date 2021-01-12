@@ -14,7 +14,7 @@ describe Check do
     context 'when file has 1 line' do
       it 'calls check_line once' do
         expect(check_start).to receive(:check_line).once
-        file = StringIO.new("1")
+        file = StringIO.new('1')
         check_start.start(file)
       end
     end
@@ -47,86 +47,92 @@ describe Check do
     end
 
     it 'adds 1 to @line_number' do
-      call_checkline = Proc.new { line_count.send(:check_line, buffer) }
-      line_number = Proc.new { line_count.instance_variable_get(:@line_number) }
-      expect(&call_checkline).to change(&line_number).by (1)
+      call_checkline = proc { line_count.send(:check_line, buffer) }
+      line_number = proc { line_count.instance_variable_get(:@line_number) }
+      expect(&call_checkline).to change(&line_number).by(1)
     end
 
-    context 'when an error is detected in a line' do
+    context 'when an error is detected in a line by all 3 checkers' do
       subject(:checks_line) { described_class.new }
 
       before do
-        allow(STDOUT).to receive(:puts)
+        allow(checks_line).to receive(:match_check).and_return(true, true, true)
+        allow($stdout).to receive(:puts)
         allow(buffer).to receive(:scan_until)
-        allow(buffer).to receive(:pos)
-        allow(buffer).to receive(:matched)
+        allow(checks_line).to receive(:error_message)
         allow(buffer).to receive(:reset)
       end
 
-      context 'by all 3 checkers' do
-        before do
-          allow(checks_line).to receive(:match_check).and_return(true, true, true)
-        end
-
-        it 'changes @line_errors to true' do
-          checks_line.send(:check_line, buffer)
-          line_errors = checks_line.line_errors
-          expect(line_errors).to be_truthy
-        end
-
-        it 'sends scan_until 3 times' do
-          expect(buffer).to receive(:scan_until).exactly(3).times
-          checks_line.send(:check_line, buffer)
-        end
-
-        it 'sends reset 3 times' do
-          expect(buffer).to receive(:reset).exactly(3).times
-          checks_line.send(:check_line, buffer)
-        end
+      it 'changes @line_errors to true' do
+        checks_line.send(:check_line, buffer)
+        line_errors = checks_line.line_errors
+        expect(line_errors).to be_truthy
       end
 
-      context 'by two checkers' do
-        before do
-          allow(checks_line).to receive(:match_check).and_return(false, true, true)
-        end
-
-        it 'changes @line_errors to true' do
-          checks_line.send(:check_line, buffer)
-          line_errors = checks_line.line_errors
-          expect(line_errors).to be_truthy
-        end
-
-        it 'sends scan_until twice' do
-          expect(buffer).to receive(:scan_until).exactly(2).times
-          checks_line.send(:check_line, buffer)
-        end
-
-        it 'sends reset 2 times' do
-          expect(buffer).to receive(:reset).exactly(2).times
-          checks_line.send(:check_line, buffer)
-        end
+      it 'sends scan_until 3 times' do
+        expect(buffer).to receive(:scan_until).exactly(3).times
+        checks_line.send(:check_line, buffer)
       end
 
-      context 'by one checker' do
-        before do
-          allow(checks_line).to receive(:match_check).and_return(false, false, true)
-        end
+      it 'sends reset 3 times' do
+        expect(buffer).to receive(:reset).exactly(3).times
+        checks_line.send(:check_line, buffer)
+      end
+    end
 
-        it 'changes @line_errors to true' do
-          checks_line.send(:check_line, buffer)
-          line_errors = checks_line.line_errors
-          expect(line_errors).to be_truthy
-        end
+    context 'when an error is detected in a line by two checkers' do
+      subject(:checks_line) { described_class.new }
 
-        it 'sends scan_until twice' do
-          expect(buffer).to receive(:scan_until).once
-          checks_line.send(:check_line, buffer)
-        end
+      before do
+        allow(checks_line).to receive(:match_check).and_return(false, true, true)
+        allow($stdout).to receive(:puts)
+        allow(buffer).to receive(:scan_until)
+        allow(checks_line).to receive(:error_message)
+        allow(buffer).to receive(:reset)
+      end
 
-        it 'sends reset once' do
-          expect(buffer).to receive(:reset).once
-          checks_line.send(:check_line, buffer)
-        end
+      it 'changes @line_errors to true' do
+        checks_line.send(:check_line, buffer)
+        line_errors = checks_line.line_errors
+        expect(line_errors).to be_truthy
+      end
+
+      it 'sends scan_until twice' do
+        expect(buffer).to receive(:scan_until).exactly(2).times
+        checks_line.send(:check_line, buffer)
+      end
+
+      it 'sends reset 2 times' do
+        expect(buffer).to receive(:reset).exactly(2).times
+        checks_line.send(:check_line, buffer)
+      end
+    end
+
+    context 'when an error is detected in a line by one checker' do
+      subject(:checks_line) { described_class.new }
+
+      before do
+        allow(checks_line).to receive(:match_check).and_return(false, false, true)
+        allow($stdout).to receive(:puts)
+        allow(buffer).to receive(:scan_until)
+        allow(checks_line).to receive(:error_message)
+        allow(buffer).to receive(:reset)
+      end
+
+      it 'changes @line_errors to true' do
+        checks_line.send(:check_line, buffer)
+        line_errors = checks_line.line_errors
+        expect(line_errors).to be_truthy
+      end
+
+      it 'sends scan_until twice' do
+        expect(buffer).to receive(:scan_until).once
+        checks_line.send(:check_line, buffer)
+      end
+
+      it 'sends reset once' do
+        expect(buffer).to receive(:reset).once
+        checks_line.send(:check_line, buffer)
       end
     end
   end
@@ -187,7 +193,7 @@ describe Check do
 
   describe '#error_message' do
     subject(:check_message) { described_class.new }
-    let(:buffer) { StringScanner.new(" this text has an error") }
+    let(:buffer) { StringScanner.new(' this text has an error') }
 
     it 'returns a message indicating line number, position, and error message' do
       expected_message = "Warning in Line 3, Position 5: ' this'. "\
