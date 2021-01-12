@@ -101,7 +101,7 @@ describe Check do
           checks_line.send(:check_line, buffer)
         end
 
-        it 'sends reset 3 times' do
+        it 'sends reset 2 times' do
           expect(buffer).to receive(:reset).exactly(2).times
           checks_line.send(:check_line, buffer)
         end
@@ -123,7 +123,7 @@ describe Check do
           checks_line.send(:check_line, buffer)
         end
 
-        it 'sends reset 3 times' do
+        it 'sends reset once' do
           expect(buffer).to receive(:reset).once
           checks_line.send(:check_line, buffer)
         end
@@ -133,7 +133,6 @@ describe Check do
 
   describe '#match_check' do
     subject(:check_pattern) { described_class.new }
-    let(:checkers) { double('checkers') }
 
     context 'when there are errors in the analyzed code' do
       let(:buffer) { StringScanner.new(' #this text has_some_errors') }
@@ -163,22 +162,22 @@ describe Check do
       end
     end
 
-    context 'when there is no match for a given pattern' do
+    context 'when there is no match for any pattern' do
       let(:buffer) { StringScanner.new('this text has no errors') }
 
-      it 'returns nil for /#[^#+\s]/' do
+      it 'does not return a truthy value for /#[^#+\s]/' do
         pattern = /#[^#+\s]/
         result = check_pattern.send(:match_check, buffer, pattern)
         expect(result).to_not be_truthy
       end
 
-      it 'returns nil for /^\s+\S+/' do
+      it 'does not return a truthy value for /^\s+\S+/' do
         pattern = /^\s+\S+/
         result = check_pattern.send(:match_check, buffer, pattern)
         expect(result).to_not be_truthy
       end
 
-      it 'returns nil for /\w+_\w+_\w+/' do
+      it 'does not return a truthy value for /\w+_\w+_\w+/' do
         pattern = /\w+_\w+_\w+/
         result = check_pattern.send(:match_check, buffer, pattern)
         expect(result).to_not be_truthy
@@ -186,17 +185,18 @@ describe Check do
     end
   end
 
-  # describe '#error_message' do
-  #   let(:checkers) { double('checkers') }
-  #   subject(:check_message) { described_class.new(' this text has an error', 3, checkers) }
+  describe '#error_message' do
+    subject(:check_message) { described_class.new }
+    let(:buffer) { StringScanner.new(" this text has an error") }
 
-  #   it 'returns a message indicating line number, position, and error message' do
-  #     expected_message = "Warning in Line 3, Position 5: ' this'. "\
-  #     '=> Unless the paragraph is in a list, don’t indent paragraphs with spaces or tabs.'
-  #     msg = '=> Unless the paragraph is in a list, don’t indent paragraphs with spaces or tabs.'
-  #     check_message.buffer.scan_until(/^\s+\S+/)
-  #     result = check_message.error_message(msg)
-  #     expect(result).to eq(expected_message)
-  #   end
-  # end
+    it 'returns a message indicating line number, position, and error message' do
+      expected_message = "Warning in Line 3, Position 5: ' this'. "\
+      '=> Unless the paragraph is in a list, don’t indent paragraphs with spaces or tabs.'
+      msg = '=> Unless the paragraph is in a list, don’t indent paragraphs with spaces or tabs.'
+      check_message.instance_variable_set(:@line_number, 3)
+      buffer.scan_until(/^\s+\S+/)
+      result = check_message.send(:error_message, buffer, msg)
+      expect(result).to eq(expected_message)
+    end
+  end
 end
