@@ -27,7 +27,7 @@ class Check
     checkers.each do |c|
       next unless match_check(buffer, c.pattern)
 
-      @line_errors = true
+      @line_errors = true unless line_errors
       buffer.scan_until(c.pattern)
       puts error_message(buffer, c.message)
       buffer.reset
