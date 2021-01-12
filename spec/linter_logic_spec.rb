@@ -131,59 +131,60 @@ describe Check do
     end
   end
 
-  # describe '#match_check' do
-  #   let(:checkers) { double('checkers') }
+  describe '#match_check' do
+    subject(:check_pattern) { described_class.new }
+    let(:checkers) { double('checkers') }
 
-  #   context 'when there are errors in the analyzed code' do
-  #     subject(:check_pattern) { described_class.new(' #this text has_some_errors', 1, checkers) }
+    context 'when there are errors in the analyzed code' do
+      let(:buffer) { StringScanner.new(' #this text has_some_errors') }
 
-  #     context 'when there is a match for Heading\'s pattern: /#[^#+\s]/' do
-  #       it 'returns a truthy value' do
-  #         pattern = /#[^#+\s]/
-  #         result = check_pattern.match_check(pattern)
-  #         expect(result).to be_truthy
-  #       end
-  #     end
+      context 'when there is a match for Heading\'s pattern: /#[^#+\s]/' do
+        it 'returns a truthy value' do
+          pattern = /#[^#+\s]/
+          result = check_pattern.send(:match_check, buffer, pattern)
+          expect(result).to be_truthy
+        end
+      end
 
-  #     context 'when there is a match for ParagraphIndent\'s pattern: /^\s+\S+/' do
-  #       it 'returns a truthy value' do
-  #         pattern = /^\s+\S+/
-  #         result = check_pattern.match_check(pattern)
-  #         expect(result).to be_truthy
-  #       end
-  #     end
+      context 'when there is a match for ParagraphIndent\'s pattern: /^\s+\S+/' do
+        it 'returns a truthy value' do
+          pattern = /^\s+\S+/
+          result = check_pattern.send(:match_check, buffer, pattern)
+          expect(result).to be_truthy
+        end
+      end
 
-  #     context 'when there is a match for ItalicMiddle\'s pattern: /\w+_\w+_\w+/' do
-  #       it 'returns a truthy value' do
-  #         pattern = /\w+_\w+_\w+/
-  #         result = check_pattern.match_check(pattern)
-  #         expect(result).to be_truthy
-  #       end
-  #     end
-  #   end
+      context 'when there is a match for ItalicMiddle\'s pattern: /\w+_\w+_\w+/' do
+        it 'returns a truthy value' do
+          pattern = /\w+_\w+_\w+/
+          result = check_pattern.send(:match_check, buffer, pattern)
+          expect(result).to be_truthy
+        end
+      end
+    end
 
-  #   context 'when there is no match for a given pattern' do
-  #     subject(:check_pattern) { described_class.new('this text has no errors', 1, checkers) }
+    context 'when there is no match for a given pattern' do
+      let(:buffer) { StringScanner.new('this text has no errors') }
 
-  #     it 'returns nil for /#[^#+\s]/' do
-  #       pattern = /#[^#+\s]/
-  #       result = check_pattern.match_check(pattern)
-  #       expect(result).to_not be_truthy
-  #     end
+      it 'returns nil for /#[^#+\s]/' do
+        pattern = /#[^#+\s]/
+        result = check_pattern.send(:match_check, buffer, pattern)
+        expect(result).to_not be_truthy
+      end
 
-  #     it 'returns nil for /^\s+\S+/' do
-  #       pattern = /^\s+\S+/
-  #       result = check_pattern.match_check(pattern)
-  #       expect(result).to_not be_truthy
-  #     end
+      it 'returns nil for /^\s+\S+/' do
+        pattern = /^\s+\S+/
+        result = check_pattern.send(:match_check, buffer, pattern)
+        expect(result).to_not be_truthy
+      end
 
-  #     it 'returns nil for /\w+_\w+_\w+/' do
-  #       pattern = /\w+_\w+_\w+/
-  #       result = check_pattern.match_check(pattern)
-  #       expect(result).to_not be_truthy
-  #     end
-  #   end
-  # end
+      it 'returns nil for /\w+_\w+_\w+/' do
+        pattern = /\w+_\w+_\w+/
+        result = check_pattern.send(:match_check, buffer, pattern)
+        expect(result).to_not be_truthy
+      end
+    end
+  end
 
   # describe '#error_message' do
   #   let(:checkers) { double('checkers') }
