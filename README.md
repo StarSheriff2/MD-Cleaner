@@ -66,7 +66,7 @@ To run the Rspec tests do the following:
 
 - GitHub: [@StarSheriff2](https://github.com/StarSheriff2)
 - Twitter: [@Turo_83](https://twitter.com/Turo_83)
-- LinkedIn: [Carlos Alvarez](https://www.linkedin.com/in/carlosalvarezveroy/)
+- LinkedIn: [Carlos Alvarez](https://www.linkedin.com/in/arturoalvarezveroy/)
 
 ## Contributing
 
