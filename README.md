@@ -6,20 +6,18 @@
 
 ![screenshot](./assets/app_screenshot.png)
 
-In this project I built a linter for markdown files. It was specifically built for README.md files that typically go inside Github repositories.
-It currently detects three types of errors:
+In this project, I built a linter for markdown files. I made this tool with README.md files in mind that typically go inside Github repositories. It currently detects three types of errors:
 - Heading errors
 - Paragraph indent errors
-- Italics in middle of a word
-
-After you run the program, it will return a list with all errors in your md file, with the following information:
+- Italics in the middle of a word
+- 
+After you run the program, it will return a list with all errors in your MD file, with the following information:
 - Code line
 - Character position
-- Copy of code where error was detected
-- A brief description of the error, and correction steps to fix it
+- Copy of code where an error was detected
+- A brief description of the error and correction steps to fix it
 
-Once you fix an error, the program won't show this error again if you run the program.
-Fix all errors until there are no errors found in your md file and you get a message confirmation that no errors were detected.
+Once you fix an error, the program won't show this error again if you run the program. Fix all issues until there are no more error messages. If you do, a message will appear stating there are no more errors.
 
 ## Built With
 
@@ -66,7 +64,7 @@ To run the Rspec tests do the following:
 
 - GitHub: [@StarSheriff2](https://github.com/StarSheriff2)
 - Twitter: [@Turo_83](https://twitter.com/Turo_83)
-- LinkedIn: [Carlos Alvarez](https://www.linkedin.com/in/carlosalvarezveroy/)
+- LinkedIn: [Arturo Alvarez](https://www.linkedin.com/in/arturoalvarezv/)
 
 ## Contributing
 
