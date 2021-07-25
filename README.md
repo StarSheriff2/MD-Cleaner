@@ -2,7 +2,7 @@
 
 # Md Cleaner
 
-> This is a linter program that checks for errors in markdown files specifically used in Github repositories. It's the Capstone project for Microverse's Ruby Course.
+> This is a linter program that checks for errors in markdown files specifically used in Github repositories.
 
 ![screenshot](./assets/app_screenshot.png)
 
