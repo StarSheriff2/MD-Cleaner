@@ -36,7 +36,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 1. Open your terminal or command prompt.
-2. If you don't have git installed in your system, skip this step and go to step 3. If you do have git installed in your system, clone this repository to your computer in any directory you want by copying this text into your command prompt/terminal: `git clone https://github.com/StarSheriff2/md-cleaner-ruby-capstone.git`. Now go to step 6.
+2. If you don't have git installed in your system, skip this step and go to step 3. If you do have git installed in your system, clone this repository to your computer in any directory you want by copying this text into your command prompt/terminal: `git@github.com:StarSheriff2/MD-Cleaner.git`. Now go to step 6.
 3. If you don't have git installed in your system, you can download the program files. To do this, click on the green button that says "**Code**", on the upper right side of the project frame.
 4. You will see a dropdown menu. Click on "**Download ZIP**".
 5. Go to the directory where you downloaded the **ZIP file** and open it. Extract its contents to any directory you want in your system.
